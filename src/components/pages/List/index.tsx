@@ -1,43 +1,17 @@
-import React, { useCallback, useState } from 'react';
-import { useListDataContext } from '~/hooks';
+import React from 'react';
 import Typography from '@mui/material/Typography';
 import { ListItem } from '~/types';
+import { useRecoilValue } from 'recoil';
+import { listDataAtom } from '~/recoil/atoms';
 import Card from './Card';
 import useStyles from './styles';
 
 const List: React.FC = () => {
-  const listData = useListDataContext();
+  const listData = useRecoilValue(listDataAtom);
   const styles = useStyles();
-  const [checkedIds, setCheckedIds] = useState<string[]>([]);
-
-  const handleCheckboxChange = useCallback(
-    (id: string) => {
-      const handleState = (prevState: string[]) => {
-        const currentData = [...prevState];
-        const findingIndex = currentData.indexOf(id);
-
-        if (findingIndex > -1) {
-          currentData.splice(findingIndex, 1);
-        } else {
-          currentData.push(id);
-        }
-
-        return currentData;
-      };
-
-      setCheckedIds(handleState);
-    },
-    [checkedIds]
-  );
 
   const handleCardMap = ({ id, ...restItem }: ListItem) => (
-    <Card
-      key={id}
-      {...restItem}
-      onCheckboxChange={handleCheckboxChange}
-      isChecked={checkedIds.includes(id)}
-      id={id}
-    />
+    <Card key={id} {...restItem} id={id} />
   );
 
   return (

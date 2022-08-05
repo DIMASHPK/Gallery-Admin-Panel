@@ -5,19 +5,18 @@ import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import theme from '~/theme';
 import { ThemeProvider } from '@emotion/react';
 import Layout from '~/components/layout/Layout';
-import { ListDataContext } from '~/contexts/';
-import { listData } from '~/data/';
+import { RecoilRoot } from 'recoil';
 
 const App = () => (
   <MuiThemeProvider theme={theme}>
     <ThemeProvider theme={theme}>
-      <ListDataContext.Provider value={listData}>
+      <RecoilRoot>
         <Router>
           <Layout>
             <Routes />
           </Layout>
         </Router>
-      </ListDataContext.Provider>
+      </RecoilRoot>
       <CssBaseline />
     </ThemeProvider>
   </MuiThemeProvider>

@@ -37,7 +37,9 @@ const Card: React.FC<CardPropsType> = React.memo(props => {
         <Typography component="h2" variant="h3" css={styles.cardContentTitle}>
           {name}
         </Typography>
-        <Typography>{description}</Typography>
+        <Typography css={styles.cardContentDescription}>
+          {description}
+        </Typography>
       </CardContent>
       <CardToolbar
         onCheckboxChange={handleCheckboxChange}

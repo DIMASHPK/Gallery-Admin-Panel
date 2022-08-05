@@ -23,11 +23,14 @@ module.exports = {
   },
   plugins: [
     'react',
-  ],
+    'react-hooks'
+    ],
   rules: {
     "prettier/prettier": "error",
     "arrow-body-style": ["error", "as-needed"],
     "import/extensions": 0,
-    "import/prefer-default-export": 0
+    "import/prefer-default-export": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error"
   },
 };

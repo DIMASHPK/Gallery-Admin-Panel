@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import MuiCard from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
@@ -7,19 +7,11 @@ import Typography from '@mui/material/Typography';
 import CardToolbar from '~/components/pages/List/Card/Toolbar';
 import useStyles from './styles';
 
-type CardPropsType = ListItem & {
-  // eslint-disable-next-line no-unused-vars
-  onCheckboxChange: (id: string) => void;
-  isChecked: boolean;
-};
+type CardPropsType = ListItem;
 
 const Card: React.FC<CardPropsType> = React.memo(props => {
-  const { images, name, description, id, onCheckboxChange, isChecked } = props;
+  const { images, name, description, id } = props;
   const [{ name: imageName, src }] = images;
-
-  const handleCheckboxChange = useCallback(() => {
-    onCheckboxChange(id);
-  }, []);
 
   const styles = useStyles();
 
@@ -37,12 +29,11 @@ const Card: React.FC<CardPropsType> = React.memo(props => {
         <Typography component="h2" variant="h3" css={styles.cardContentTitle}>
           {name}
         </Typography>
-        <Typography>{description}</Typography>
+        <Typography css={styles.cardContentDescription}>
+          {description}
+        </Typography>
       </CardContent>
-      <CardToolbar
-        onCheckboxChange={handleCheckboxChange}
-        isChecked={isChecked}
-      />
+      <CardToolbar id={id} />
     </MuiCard>
   );
 });

@@ -3,15 +3,16 @@ import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Checkbox from '@mui/material/Checkbox';
+import { useSelecteItem } from '~/components/pages/List/hooks';
 import useStyles from './styles';
 
 type CardToolbarPropsType = {
-  onCheckboxChange: () => void;
-  isChecked: boolean;
+  id: string;
 };
 
 const CardToolbar: React.FC<CardToolbarPropsType> = React.memo(props => {
-  const { isChecked, onCheckboxChange } = props;
+  const { id } = props;
+  const [isChecked, onCheckboxChange] = useSelecteItem(id);
 
   const styles = useStyles();
 

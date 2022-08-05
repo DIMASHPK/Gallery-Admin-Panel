@@ -40,6 +40,12 @@ export default () => {
       background: cream,
       width: '70%',
     }),
+    cardContentDescription: css({
+      display: '-webkit-box',
+      '-webkit-line-clamp': '6',
+      '-webkit-box-orient': 'vertical',
+      overflow: 'hidden',
+    }),
     cardContentTitle: css({
       color: dark,
       marginBottom: spacing(2),

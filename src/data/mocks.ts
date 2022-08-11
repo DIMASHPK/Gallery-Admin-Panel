@@ -1,6 +1,6 @@
-import { ListItem } from '~/types';
+import { ListItemType } from '~/types';
 
-export const listData: ListItem[] = [
+export const listData: ListItemType[] = [
   {
     id: '1',
     name: 'Pictures',

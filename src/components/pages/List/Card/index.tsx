@@ -2,12 +2,14 @@ import React from 'react';
 import MuiCard from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
-import { ListItem } from '~/types';
+import { ListItemType } from '~/types';
 import Typography from '@mui/material/Typography';
 import CardToolbar from '~/components/pages/List/Card/Toolbar';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '~/data';
 import useStyles from './styles';
 
-type CardPropsType = ListItem;
+type CardPropsType = ListItemType;
 
 const Card: React.FC<CardPropsType> = React.memo(props => {
   const { images, name, description, id } = props;
@@ -15,8 +17,18 @@ const Card: React.FC<CardPropsType> = React.memo(props => {
 
   const styles = useStyles();
 
+  const navigate = useNavigate();
+
+  const handleRoute = () => {
+    const { PATH } = ROUTES.LIST_DETAILS;
+
+    const replacedString = PATH.replace(':id', id);
+
+    navigate(replacedString);
+  };
+
   return (
-    <MuiCard css={styles.card}>
+    <MuiCard css={styles.card} onClick={handleRoute}>
       <div css={styles.cardImageWrapper}>
         <CardMedia
           component="img"

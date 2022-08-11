@@ -1,6 +1,6 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
-import { ListItem } from '~/types';
+import { ListItemType } from '~/types';
 import { useRecoilValue } from 'recoil';
 import { listDataAtom } from '~/recoil/atoms';
 import Card from './Card';
@@ -10,7 +10,7 @@ const List: React.FC = () => {
   const listData = useRecoilValue(listDataAtom);
   const styles = useStyles();
 
-  const handleCardMap = ({ id, ...restItem }: ListItem) => (
+  const handleCardMap = ({ id, ...restItem }: ListItemType) => (
     <Card key={id} {...restItem} id={id} />
   );
 

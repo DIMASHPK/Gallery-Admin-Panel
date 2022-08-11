@@ -29,4 +29,21 @@ export default createTheme({
       },
     },
   },
+  components: {
+    MuiCardContent: {
+      styleOverrides: {
+        root: {
+          background: creamColor,
+        },
+      },
+    },
+    MuiCardActions: {
+      styleOverrides: {
+        root: {
+          background: creamColor,
+          padding: 16,
+        },
+      },
+    },
+  },
 });

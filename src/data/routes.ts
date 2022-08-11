@@ -9,9 +9,9 @@ export const ROUTES = {
     LABEL: 'table',
     TOP_NAV: true,
   },
-  LIST_ITEM: {
+  LIST_DETAILS: {
     PATH: '/:id',
-    LABEL: 'list item',
+    LABEL: 'list details',
     TOP_NAV: false,
   },
 } as const;

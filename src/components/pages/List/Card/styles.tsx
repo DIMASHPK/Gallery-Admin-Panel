@@ -37,7 +37,6 @@ export default () => {
     cardContent: css({
       padding: spacing(2),
       zIndex: 2,
-      background: cream,
       width: '70%',
     }),
     cardContentDescription: css({

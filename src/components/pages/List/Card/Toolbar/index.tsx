@@ -16,10 +16,15 @@ const CardToolbar: React.FC<CardToolbarPropsType> = React.memo(props => {
 
   const styles = useStyles();
 
+  const handlePreventClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+  };
+
   return (
     <div
       css={[styles.cardToolbar, isChecked && styles.cardToolbarShown]}
       className="cardToolbar"
+      onClick={handlePreventClick}
     >
       <div>
         <Checkbox

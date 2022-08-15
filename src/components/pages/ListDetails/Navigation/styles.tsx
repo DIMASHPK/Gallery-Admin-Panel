@@ -22,11 +22,11 @@ export default () => {
       position: 'fixed',
       top: '50%',
       transform: 'translateY(-50%)',
+      color: primary,
     }),
     rightButton: css({ right: 10 }),
     leftButton: css({ left: 10 }),
     arrowIcon: css({
-      color: primary,
       fontSize: 45,
     }),
   };

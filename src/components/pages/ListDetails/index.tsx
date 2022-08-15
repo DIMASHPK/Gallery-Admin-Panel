@@ -16,6 +16,7 @@ import { useQuery } from '~/hooks';
 import { API_PATH_NAMES, EMPTY_PHOTO } from '~/data/constants';
 import Preloader from '~/components/common/Preloader';
 import useStyles from './styles';
+import DetailsNavigation from './Navigation';
 
 const ListDetails: React.FC = () => {
   const { id } = useParams();
@@ -50,33 +51,35 @@ const ListDetails: React.FC = () => {
   const [{ name: imageName, src } = EMPTY_PHOTO] = images;
 
   return (
-    <Box css={styles.listDetailsContainer}>
-      <Card css={styles.listDetailsCard}>
-        <CardMedia component="img" image={src} alt={imageName} />
-        <CardContent>
-          <Typography variant="h3" component="h2">
-            {name}
-          </Typography>
-          <Typography color="text.secondary" gutterBottom>
-            size: {size} <br />
-            date: {date}
-          </Typography>
-          <Typography>{description}</Typography>
-        </CardContent>
-        <CardActions css={styles.listDetailsCardActions}>
-          <Button size="medium" variant="contained" color="primary">
-            <EditIcon css={styles.listDetailsCardActionIcon} />
-            &nbsp;
-            <span>Edit</span>
-          </Button>
-          <Button size="medium" variant="contained" color="error">
-            <DeleteIcon css={styles.listDetailsCardActionIcon} />
-            &nbsp;
-            <span>Remove</span>
-          </Button>
-        </CardActions>
-      </Card>
-    </Box>
+    <DetailsNavigation>
+      <Box css={styles.listDetailsContainer}>
+        <Card css={styles.listDetailsCard}>
+          <CardMedia component="img" image={src} alt={imageName} />
+          <CardContent>
+            <Typography variant="h3" component="h2">
+              {name}
+            </Typography>
+            <Typography color="text.secondary" gutterBottom>
+              size: {size} <br />
+              date: {date}
+            </Typography>
+            <Typography>{description}</Typography>
+          </CardContent>
+          <CardActions css={styles.listDetailsCardActions}>
+            <Button size="medium" variant="contained" color="primary">
+              <EditIcon css={styles.listDetailsCardActionIcon} />
+              &nbsp;
+              <span>Edit</span>
+            </Button>
+            <Button size="medium" variant="contained" color="error">
+              <DeleteIcon css={styles.listDetailsCardActionIcon} />
+              &nbsp;
+              <span>Remove</span>
+            </Button>
+          </CardActions>
+        </Card>
+      </Box>
+    </DetailsNavigation>
   );
 };
 

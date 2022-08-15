@@ -18,6 +18,7 @@ export default () => {
       padding: spacing(3),
       cursor: 'pointer',
       position: 'relative',
+      minHeight: 337,
       '&:hover .cardToolbar': {
         transform: 'translateX(0%)',
       },
@@ -41,13 +42,16 @@ export default () => {
     }),
     cardContentDescription: css({
       display: '-webkit-box',
-      '-webkit-line-clamp': '6',
+      '-webkit-line-clamp': '5',
       '-webkit-box-orient': 'vertical',
       overflow: 'hidden',
     }),
     cardContentTitle: css({
       color: dark,
       marginBottom: spacing(2),
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
     }),
   };
 };

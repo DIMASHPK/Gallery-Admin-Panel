@@ -3,7 +3,6 @@ import { useTheme } from '@mui/material';
 
 export default () => {
   const {
-    spacing,
     palette: {
       custom: {
         white: { cream },

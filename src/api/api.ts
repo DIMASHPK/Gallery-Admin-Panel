@@ -7,7 +7,7 @@ export default class Api implements ApiInterface {
   private readonly axios: AxiosInstance;
 
   constructor() {
-    this.baseUrl = process.env.REACT_APP_API_URL || '127.0.0.1:5173';
+    this.baseUrl = process.env.REACT_APP_API_URL || 'localhost:3000';
 
     this.axios = axios.create({
       baseURL: this.baseUrl,
@@ -17,6 +17,6 @@ export default class Api implements ApiInterface {
     });
   }
 
-  get = <T>({ path }: getArgsType): Promise<AxiosResponse<T>> =>
+  get = async <T>({ path }: getArgsType): Promise<AxiosResponse<T>> =>
     this.axios.get(path);
 }

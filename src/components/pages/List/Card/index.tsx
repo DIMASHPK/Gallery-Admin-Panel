@@ -7,13 +7,15 @@ import Typography from '@mui/material/Typography';
 import CardToolbar from '~/components/pages/List/Card/Toolbar';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '~/data';
+import { EMPTY_PHOTO } from '~/data/constants';
 import useStyles from './styles';
 
 type CardPropsType = ListItemType;
 
 const Card: React.FC<CardPropsType> = React.memo(props => {
   const { images, name, description, id } = props;
-  const [{ name: imageName, src }] = images;
+
+  const [{ name: imageName, src } = EMPTY_PHOTO] = images;
 
   const styles = useStyles();
 
@@ -22,7 +24,7 @@ const Card: React.FC<CardPropsType> = React.memo(props => {
   const handleRoute = () => {
     const { PATH } = ROUTES.LIST_DETAILS;
 
-    const replacedString = PATH.replace(':id', id);
+    const replacedString = PATH.replace(':id', id.toString());
 
     navigate(replacedString);
   };

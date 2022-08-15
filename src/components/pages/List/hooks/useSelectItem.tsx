@@ -2,13 +2,13 @@ import { useRecoilState } from 'recoil';
 import { selectedListItemsAtom } from '~/recoil/atoms';
 import { useCallback, useMemo } from 'react';
 
-export default (id: string): [boolean, () => void] => {
+export default (id: number): [boolean, () => void] => {
   const [selectedItems, setSelectedItems] = useRecoilState(
     selectedListItemsAtom
   );
 
   const handleCheckboxChange = useCallback(() => {
-    const handleState = (prevState: string[]) => {
+    const handleState = (prevState: number[]) => {
       const currentData = [...prevState];
       const findingIndex = currentData.indexOf(id);
 

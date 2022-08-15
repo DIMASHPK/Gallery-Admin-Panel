@@ -1,9 +1,8 @@
 import { AxiosResponse } from 'axios';
-import { GetOptionalType } from '~/utils/typeHelpers';
-import { API_PATH_NAMES } from '~/data/constants';
+import { ApiPathNamesType } from '~/types';
 
 export type getArgsType = {
-  path: GetOptionalType<typeof API_PATH_NAMES>;
+  path: ApiPathNamesType;
 };
 
 export interface ApiInterface {

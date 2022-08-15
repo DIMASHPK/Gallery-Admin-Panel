@@ -7,7 +7,7 @@ import { useSelecteItem } from '~/components/pages/List/hooks';
 import useStyles from './styles';
 
 type CardToolbarPropsType = {
-  id: string;
+  id: number;
 };
 
 const CardToolbar: React.FC<CardToolbarPropsType> = React.memo(props => {

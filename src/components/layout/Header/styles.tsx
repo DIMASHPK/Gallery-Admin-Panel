@@ -35,8 +35,12 @@ export default () => {
     listItem: css({
       width: 'auto',
     }),
+    listItemButton: css({
+      padding: 0,
+    }),
     listItemLink: css({
       textDecoration: 'none',
+      padding: spacing(1, 2, 1, 2),
       color: primaryWhite,
       '&.active': {
         color: main,

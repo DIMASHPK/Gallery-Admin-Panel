@@ -17,4 +17,9 @@ export default defineConfig({
       '~': path.resolve(__dirname, 'src'),
     },
   },
+  define: {
+    'process.env': {
+      REACT_APP_API_URL: 'http://localhost:3000',
+    },
+  },
 });

@@ -16,7 +16,7 @@ const Header: React.FC = () => {
 
   const renderLink = ({ PATH, LABEL }: typeof navLinks[number]) => (
     <ListItem css={styles.listItem}>
-      <Button variant="text" color="secondary">
+      <Button variant="text" color="secondary" css={styles.listItemButton}>
         <NavLink css={styles.listItemLink} to={PATH}>
           {LABEL}
         </NavLink>

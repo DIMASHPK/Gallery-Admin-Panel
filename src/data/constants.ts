@@ -11,4 +11,5 @@ export const API_PATH_NAMES: ApiPathNamesType = {
 export const EMPTY_PHOTO = {
   name: 'empty image',
   src: 'https://www.ochch.org/wp-content/themes/mast/images/empty-photo.jpg',
+  id: new Date().getDate(),
 };

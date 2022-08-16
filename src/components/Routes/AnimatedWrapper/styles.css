@@ -1,0 +1,21 @@
+.animationWrapper {
+   min-width: 100%;
+}
+
+.routingAnimation-enter {
+    opacity: 0;
+}
+
+.routingAnimation-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+}
+
+.routingAnimation-exit {
+    opacity: 1;
+}
+
+.routingAnimation-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+}

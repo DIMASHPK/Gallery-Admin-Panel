@@ -1,6 +1,6 @@
 import React from 'react';
-import { ChildrenType } from '~/data/types';
 import Header from '~/components/layout/Header';
+import { ChildrenType } from '~/types';
 import useStyles from './styles';
 
 type LayoutPropsType = ChildrenType;

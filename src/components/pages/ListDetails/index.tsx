@@ -15,6 +15,8 @@ import { listDetailsDataAtom } from '~/recoil/atoms';
 import { useQuery } from '~/hooks';
 import { API_PATH_NAMES, EMPTY_PHOTO } from '~/data/constants';
 import Preloader from '~/components/common/Preloader';
+import { getDate } from '~/utils/datesHelpers';
+import { formatBytes } from '~/utils/helpers';
 import useStyles from './styles';
 import DetailsNavigation from './Navigation';
 
@@ -60,8 +62,8 @@ const ListDetails: React.FC = () => {
               {name}
             </Typography>
             <Typography color="text.secondary" gutterBottom>
-              size: {size} <br />
-              date: {date}
+              size: {formatBytes(size)} <br />
+              date: {getDate(date)}
             </Typography>
             <Typography>{description}</Typography>
           </CardContent>

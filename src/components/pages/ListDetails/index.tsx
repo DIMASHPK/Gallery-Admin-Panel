@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useParams } from 'react-router-dom';
@@ -15,6 +14,9 @@ import { listDetailsDataAtom } from '~/recoil/atoms';
 import { useQuery } from '~/hooks';
 import { API_PATH_NAMES, EMPTY_PHOTO } from '~/data/constants';
 import Preloader from '~/components/common/Preloader';
+import { getDate } from '~/utils/datesHelpers';
+import { formatBytes } from '~/utils/helpers';
+import DetailsCarousel from '~/components/pages/ListDetails/Carousel';
 import useStyles from './styles';
 import DetailsNavigation from './Navigation';
 
@@ -48,20 +50,19 @@ const ListDetails: React.FC = () => {
   }
 
   const { name, size, description, date, images } = listDetailsData;
-  const [{ name: imageName, src } = EMPTY_PHOTO] = images;
 
   return (
     <DetailsNavigation>
       <Box css={styles.listDetailsContainer}>
         <Card css={styles.listDetailsCard}>
-          <CardMedia component="img" image={src} alt={imageName} />
+          <DetailsCarousel images={images} />
           <CardContent>
             <Typography variant="h3" component="h2">
               {name}
             </Typography>
             <Typography color="text.secondary" gutterBottom>
-              size: {size} <br />
-              date: {date}
+              size: {formatBytes(size)} <br />
+              date: {getDate(date)}
             </Typography>
             <Typography>{description}</Typography>
           </CardContent>

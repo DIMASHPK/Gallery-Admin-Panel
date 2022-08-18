@@ -6,16 +6,19 @@ import theme from '~/theme';
 import { ThemeProvider } from '@emotion/react';
 import Layout from '~/components/layout/Layout';
 import { RecoilRoot } from 'recoil';
+import FullViewPhotoWrapper from '~/components/wrappers/FullViewPhotoWrapper';
 
 const App = () => (
   <MuiThemeProvider theme={theme}>
     <ThemeProvider theme={theme}>
       <RecoilRoot>
-        <Router>
-          <Layout>
-            <Routes />
-          </Layout>
-        </Router>
+        <FullViewPhotoWrapper>
+          <Router>
+            <Layout>
+              <Routes />
+            </Layout>
+          </Router>
+        </FullViewPhotoWrapper>
       </RecoilRoot>
       <CssBaseline />
     </ThemeProvider>

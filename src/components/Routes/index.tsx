@@ -3,7 +3,7 @@ import { Routes as Switch, Route, useLocation } from 'react-router-dom';
 import { ROUTES } from '~/data/routes';
 import List from '~/components/pages/List';
 import ListDetails from '~/components/pages/ListDetails';
-import AnimatedWrapper from './AnimatedWrapper';
+import AnimatedWrapper from '../wrappers/AnimatedWrapper';
 
 const {
   LIST: { PATH: LIST_PATH },

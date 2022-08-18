@@ -7,6 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import ArrowRight from '@mui/icons-material/NavigateNext';
 import { EMPTY_PHOTO } from '~/data/constants';
 import useCarousel from '~/hooks/useCarousel';
+import useSetFullViewPhotos from '~/hooks/useSetFullViewPhotos';
 import useStyles from './styles';
 
 type DetailsCarouselPropsType = {
@@ -20,13 +21,19 @@ const DetailsCarousel: React.FC<DetailsCarouselPropsType> = props => {
   const { slides, wrapperRef, handlePreviousClick, handleNextClick } =
     useCarousel({ slides: images });
 
+  const { handleSetFullViewImages } = useSetFullViewPhotos(images);
+
   const styles = useStyles();
 
   const handleSlidesMap = (
     { src, name, id }: typeof EMPTY_PHOTO,
     i: number
   ) => (
-    <Box css={styles.slideWrapper} key={id + i}>
+    <Box
+      css={styles.slideWrapper}
+      key={id + i}
+      onClick={() => handleSetFullViewImages(i - 1)}
+    >
       <CardMedia css={styles.slide} component="img" image={src} alt={name} />
     </Box>
   );

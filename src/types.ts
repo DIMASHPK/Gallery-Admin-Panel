@@ -32,3 +32,13 @@ export type ListResponseType = {
 export type ListDetailsResponseType = {
   data: ListItemType;
 };
+
+export type PhotoFullViewImageType = {
+  src: string;
+};
+
+export type PhotoFullViewType = {
+  images: PhotoFullViewImageType[];
+  isOpen: boolean;
+  photoIndex: number;
+};

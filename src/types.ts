@@ -27,10 +27,13 @@ export type ApiPathNamesType = GetOptionalType<typeof API_PATH_NAMES>;
 
 export type ListResponseType = {
   data: ListItemType[];
+  isEnd: boolean;
 };
 
 export type ListDetailsResponseType = {
-  data: ListItemType;
+  itemData: ListItemType;
+  hasPrevious: boolean;
+  hasNext: boolean;
 };
 
 export type PhotoFullViewImageType = {

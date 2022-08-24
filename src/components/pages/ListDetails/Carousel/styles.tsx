@@ -34,6 +34,7 @@ export default () => {
       display: 'flex',
       height: '100%',
       transition: 'transform .3s',
+      cursor: 'nesw-resize',
     }),
     slideWrapper: css({
       flexShrink: 0,

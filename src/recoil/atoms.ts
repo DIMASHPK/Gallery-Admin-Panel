@@ -11,9 +11,19 @@ export const selectedListItemsAtom = atom<number[]>({
   default: [],
 });
 
-export const listDetailsDataAtom = atom<null | ListItemType>({
+export const listDetailsDataAtom = atom({
   key: 'listDetailsData',
-  default: null,
+  default: null as unknown as ListItemType,
+});
+
+export const detailsHasPreviousAtom = atom({
+  key: 'detailsHasPrevious',
+  default: false,
+});
+
+export const detailsHasNextAtom = atom({
+  key: 'detailsHasNext',
+  default: false,
 });
 
 export const photoFullViewDataAtom = atom<PhotoFullViewType>({

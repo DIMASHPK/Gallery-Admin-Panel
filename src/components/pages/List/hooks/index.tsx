@@ -1,1 +1,2 @@
-export { default as useSelecteItem } from './useSelectItem';
+export { default as useSelectedItem } from './useSelectedItem';
+export { default as useLoadData } from './useLoadData';

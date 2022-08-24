@@ -22,7 +22,7 @@ export default (id: number): [boolean, () => void] => {
     };
 
     setSelectedItems(handleState);
-  }, [setSelectedItems]);
+  }, [id, setSelectedItems]);
 
   const isSelected = useMemo(
     () => selectedItems.includes(id),

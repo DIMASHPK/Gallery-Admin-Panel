@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { api } from '~/api';
 import { ApiPathNamesType } from '~/types';
 import useEffectOnce from './useEffectOnce';
@@ -15,6 +15,7 @@ export default <T>(args: useQueryArgsType) => {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const isMountedRef = useRef({ isMounted: false });
 
   const handleQuery = useCallback(async () => {
     try {
@@ -40,13 +41,14 @@ export default <T>(args: useQueryArgsType) => {
 
     (async () => {
       await handleQuery();
+      isMountedRef.current.isMounted = true;
     })();
   });
 
   const previousSkip = usePrevious(skip);
 
   useEffect(() => {
-    if (skip || (skip && previousSkip === skip)) {
+    if (skip || !isMountedRef?.current?.isMounted) {
       return;
     }
 
@@ -59,5 +61,6 @@ export default <T>(args: useQueryArgsType) => {
     data,
     loading,
     error,
+    queryData: handleQuery,
   };
 };

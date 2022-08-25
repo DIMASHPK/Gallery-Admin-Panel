@@ -2,6 +2,7 @@ import React from 'react';
 import Typography from '@mui/material/Typography';
 import { ListItemType } from '~/types';
 import Preloader from '~/components/common/Preloader';
+import Tools from './Tools';
 import { useLoadData } from './hooks';
 import Card from './Card';
 import useStyles from './styles';
@@ -24,9 +25,10 @@ const List: React.FC = () => {
 
   return (
     <div css={styles.listContainer}>
-      <Typography component="h1" variant="h1" css={styles.listTitle}>
+      <Typography component="h1" variant="h2" css={styles.listTitle}>
         List Gallery
       </Typography>
+      <Tools />
       <div css={styles.listItemsContainer}>
         {listData?.map?.(handleCardMap)}
       </div>

@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import SettingsIcon from '@mui/icons-material/Settings';
 import Box from '@mui/material/Box';
 import ToolsPopover from '~/components/pages/List/Tools/ToolsPopover';
+import ToolsForm from '~/components/pages/List/Tools/Form';
 import useStyles from './styles';
 
 const Tools: React.FC = () => {

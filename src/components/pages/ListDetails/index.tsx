@@ -1,47 +1,26 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { useParams } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
-import { ListDetailsResponseType } from '~/types';
 import Box from '@mui/material/Box';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { listDetailsDataAtom } from '~/recoil/atoms';
-import { useQuery } from '~/hooks';
-import { API_PATH_NAMES, EMPTY_PHOTO } from '~/data/constants';
 import Preloader from '~/components/common/Preloader';
 import { getDate } from '~/utils/datesHelpers';
 import { formatBytes } from '~/utils/helpers';
 import DetailsCarousel from '~/components/pages/ListDetails/Carousel';
+import { useLoadData } from '~/components/pages/ListDetails/hooks';
 import useStyles from './styles';
 import DetailsNavigation from './Navigation';
 
 const ListDetails: React.FC = () => {
-  const { id } = useParams();
-
-  const { loading, data } = useQuery<ListDetailsResponseType>({
-    path: API_PATH_NAMES.LIST_DETAILS.replace(
-      ':id',
-      id as string
-    ) as typeof API_PATH_NAMES.LIST_DETAILS,
-  });
-
   const styles = useStyles();
 
-  const [listDetailsData, setListDetailsData] =
-    useRecoilState(listDetailsDataAtom);
+  const { listDetailsData, loading } = useLoadData();
 
-  useEffect(() => {
-    if (data) {
-      setListDetailsData(data.data);
-    }
-  }, [data, setListDetailsData]);
-
-  if (loading && !listDetailsData) {
+  if (loading) {
     return <Preloader />;
   }
 

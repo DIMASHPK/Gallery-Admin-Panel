@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '~/data';
+import { replaceRoutesParams } from '~/utils/pathReplacer';
 
 export default (id: number) => {
   const navigate = useNavigate();
@@ -7,7 +8,7 @@ export default (id: number) => {
   const handleRoute = () => {
     const { PATH } = ROUTES.LIST_DETAILS;
 
-    const replacedString = PATH.replace(':id', id.toString());
+    const replacedString = replaceRoutesParams(PATH, { ':id': id });
 
     navigate(replacedString);
   };

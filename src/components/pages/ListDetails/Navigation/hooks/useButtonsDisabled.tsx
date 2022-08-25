@@ -1,20 +1,13 @@
-import { useParams } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { listDataAtom } from '~/recoil/atoms';
+import { detailsHasNextAtom, detailsHasPreviousAtom } from '~/recoil/atoms';
 
 export default () => {
-  const { id } = useParams();
+  const detailsHasPrevious = useRecoilValue(detailsHasPreviousAtom);
+  const detailsHasNext = useRecoilValue(detailsHasNextAtom);
 
-  const listData = useRecoilValue(listDataAtom);
+  const isLeftButtonDisabled = !detailsHasPrevious;
 
-  const firstListDataItem = listData ? listData[0] : null;
-  const lastListDataItem = listData ? listData[listData.length - 1] : null;
-
-  const isLeftButtonDisabled =
-    !listData || firstListDataItem?.id === parseInt(id as string, 10);
-
-  const isRightButtonDisabled =
-    !listData || lastListDataItem?.id === parseInt(id as string, 10);
+  const isRightButtonDisabled = !detailsHasNext;
 
   return { isLeftButtonDisabled, isRightButtonDisabled };
 };

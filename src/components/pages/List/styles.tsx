@@ -27,6 +27,7 @@ export default () => {
       display: 'grid',
       gridTemplateColumns: 'repeat(2, 1fr)',
       gap: spacing(4),
+      marginBottom: 40,
     }),
   };
 };

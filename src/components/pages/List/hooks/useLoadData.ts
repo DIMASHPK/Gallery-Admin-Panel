@@ -1,9 +1,7 @@
 import { useIntersectionObserver, useQuery } from '~/hooks';
-import { ListResponseType } from '~/types';
+import { ListItemType, ListResponseType } from '~/types';
 import { API_PATH_NAMES } from '~/data/constants';
 import { useEffect, useState } from 'react';
-import { useRecoilState } from 'recoil';
-import { listDataAtom } from '~/recoil/atoms';
 import { replacePathVariables } from '~/utils/pathReplacer';
 
 export default () => {
@@ -20,7 +18,7 @@ export default () => {
 
   const [ref, setRef] = useState<HTMLDivElement | null>(null);
 
-  const [listData, setListData] = useRecoilState(listDataAtom);
+  const [listData, setListData] = useState<null | ListItemType[]>(null);
 
   const observerEntry = useIntersectionObserver({ current: ref });
 

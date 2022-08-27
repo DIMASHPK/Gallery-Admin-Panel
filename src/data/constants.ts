@@ -18,3 +18,26 @@ export const PRELOADER_STYLES_KEY = {
   DEFAULT: 'DEFAULT',
   FIXED: 'FIXED',
 } as const;
+
+export const FILTERS = {
+  NAME: {
+    NAME: 'name',
+    TYPE: 'text',
+  },
+  SIZE: {
+    NAME: 'size',
+    TYPE: 'text',
+  },
+  DATE: {
+    NAME: 'date',
+    TYPE: 'range',
+  },
+  DESCRIPTION: {
+    NAME: 'description',
+    type: 'text',
+  },
+  CONDITION: {
+    NAME: 'condition',
+    type: 'select',
+  },
+};

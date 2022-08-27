@@ -45,5 +45,58 @@ export default createTheme({
         },
       },
     },
+    MuiPopover: {
+      styleOverrides: {
+        paper: {
+          background: secondaryMainColor,
+        },
+      },
+    },
+    MuiListItemButton: {
+      styleOverrides: {
+        root: {
+          color: whiteMainColor,
+        },
+      },
+    },
+    MuiListItem: {
+      styleOverrides: {
+        root: {
+          color: whiteMainColor,
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        containedSecondary: {
+          background: darkGreenColor,
+        },
+      },
+    },
+    MuiFormLabel: {
+      styleOverrides: {
+        root: {
+          color: whiteMainColor,
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          '&:hover .MuiOutlinedInput-notchedOutline': {
+            borderColor: whiteMainColor,
+          },
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: primaryMainColor,
+          },
+        },
+        input: {
+          color: whiteMainColor,
+        },
+        notchedOutline: {
+          borderColor: whiteMainColor,
+        },
+      },
+    },
   },
 });

@@ -2,10 +2,10 @@ import React from 'react';
 import Typography from '@mui/material/Typography';
 import { ListItemType } from '~/types';
 import Preloader from '~/components/common/Preloader';
-import ToolsForm from './Tools/Form';
-import Tools from './Tools';
+import ToolsForm from './components/Tools/Form';
+import Tools from './components/Tools';
 import { useLoadData } from './hooks';
-import Card from './Card';
+import Card from './components/Card';
 import useStyles from './styles';
 
 const List: React.FC = () => {

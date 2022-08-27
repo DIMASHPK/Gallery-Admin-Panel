@@ -10,10 +10,10 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Preloader from '~/components/common/Preloader';
 import { getDate } from '~/utils/datesHelpers';
 import { formatBytes } from '~/utils/helpers';
-import DetailsCarousel from '~/components/pages/ListDetails/Carousel';
+import DetailsCarousel from '~/components/pages/ListDetails/components/Carousel';
 import { useLoadData } from '~/components/pages/ListDetails/hooks';
 import useStyles from './styles';
-import DetailsNavigation from './Navigation';
+import DetailsNavigation from './components/Navigation';
 
 const ListDetails: React.FC = () => {
   const styles = useStyles();

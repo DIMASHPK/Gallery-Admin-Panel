@@ -4,7 +4,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import { ListItemType } from '~/types';
 import Typography from '@mui/material/Typography';
-import CardToolbar from '~/components/pages/List/Card/Toolbar';
+import CardToolbar from '~/components/pages/List/components/Toolbar';
 import { EMPTY_PHOTO } from '~/data/constants';
 import useClickHandler from './hooks/useClickHandler';
 import useStyles from './styles';

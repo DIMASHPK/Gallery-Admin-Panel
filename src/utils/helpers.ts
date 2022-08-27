@@ -9,3 +9,6 @@ export const formatBytes = (bytes: number, decimals = 2) => {
 
   return `${parseFloat((bytes / k ** i).toFixed(dm))} ${sizes[i]}`;
 };
+
+export const toCapitalize = (string: string) =>
+  `${string[0].toUpperCase()}${string.slice(1)}`;

@@ -1,23 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from '@mui/material/Button';
 import SettingsIcon from '@mui/icons-material/Settings';
 import Box from '@mui/material/Box';
-import ToolsPopover from '~/components/pages/List/Tools/ToolsPopover';
-import ToolsForm from '~/components/pages/List/Tools/Form';
+import ToolsPopover from '~/components/pages/List/components/ToolsPopover';
+import usePopoverHandlers from '~/components/pages/List/components/Tools/hooks/usePopoverHandlers';
 import useStyles from './styles';
 
 const Tools: React.FC = () => {
   const styles = useStyles();
 
-  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
-
-  const handleOpenPopover = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClosePopover = () => {
-    setAnchorEl(null);
-  };
+  const {
+    handleOpenPopover,
+    handleCancelPopover,
+    anchorEl,
+    handleSavePopover,
+  } = usePopoverHandlers();
 
   return (
     <Box css={styles.toolsContainer}>
@@ -29,7 +26,11 @@ const Tools: React.FC = () => {
         >
           Tools
         </Button>
-        <ToolsPopover anchorEl={anchorEl} handleClose={handleClosePopover} />
+        <ToolsPopover
+          anchorEl={anchorEl}
+          onCancelPopover={handleCancelPopover}
+          onSavePopover={handleSavePopover}
+        />
       </Box>
     </Box>
   );

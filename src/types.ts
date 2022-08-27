@@ -45,3 +45,28 @@ export type PhotoFullViewType = {
   isOpen: boolean;
   photoIndex: number;
 };
+
+export type ToolsSortingFormType = {
+  order: string;
+  value: string;
+};
+
+export type ToolsFiltersFormType = {
+  name: string;
+  value: string;
+};
+
+export type ToolsFormCommonType = {
+  sorting: ToolsSortingFormType;
+  filters: ToolsFiltersFormType[];
+};
+
+export type ToolsFormType = {
+  changeableValues: ToolsFormCommonType;
+  currentValues: ToolsFormCommonType;
+};
+
+export type SelectOptionType = {
+  label: string;
+  value: string;
+};

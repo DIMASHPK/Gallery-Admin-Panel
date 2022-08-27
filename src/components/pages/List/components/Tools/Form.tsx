@@ -1,23 +1,26 @@
 import React from 'react';
 import { Formik } from 'formik';
-import { ChildrenType } from '~/types';
+import { ChildrenType, ToolsFormType } from '~/types';
 
 type ToolsFormPropsType = ChildrenType;
 
 const ToolsForm: React.FC<ToolsFormPropsType> = props => {
   const { children } = props;
 
-  const initialValues = {
-    sorting: {
-      order: '',
-      value: '',
+  const initialValues: ToolsFormType = {
+    changeableValues: {
+      sorting: {
+        order: '',
+        value: '',
+      },
+      filters: [],
     },
-    filters: {
-      name: '',
-      size: '',
-      date: [],
-      description: '',
-      cond: '',
+    currentValues: {
+      sorting: {
+        order: '',
+        value: '',
+      },
+      filters: [],
     },
   };
 

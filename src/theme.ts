@@ -98,5 +98,17 @@ export default createTheme({
         },
       },
     },
+    MuiSelect: {
+      styleOverrides: {
+        icon: {
+          color: whiteMainColor,
+        },
+        select: {
+          '& .MuiMenuItem-root': {
+            color: whiteMainColor,
+          },
+        },
+      },
+    },
   },
 });

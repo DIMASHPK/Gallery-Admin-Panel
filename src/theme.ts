@@ -110,5 +110,14 @@ export default createTheme({
         },
       },
     },
+    MuiInputAdornment: {
+      styleOverrides: {
+        positionEnd: {
+          '& > button': {
+            color: whiteMainColor,
+          },
+        },
+      },
+    },
   },
 });

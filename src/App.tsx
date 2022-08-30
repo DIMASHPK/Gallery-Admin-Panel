@@ -7,22 +7,26 @@ import { ThemeProvider } from '@emotion/react';
 import Layout from '~/components/layout/Layout';
 import { RecoilRoot } from 'recoil';
 import FullViewPhotoWrapper from '~/components/wrappers/FullViewPhotoWrapper';
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
 const App = () => (
-  <MuiThemeProvider theme={theme}>
-    <ThemeProvider theme={theme}>
-      <RecoilRoot>
-        <FullViewPhotoWrapper>
-          <Router>
-            <Layout>
-              <Routes />
-            </Layout>
-          </Router>
-        </FullViewPhotoWrapper>
-      </RecoilRoot>
-      <CssBaseline />
-    </ThemeProvider>
-  </MuiThemeProvider>
+  <LocalizationProvider dateAdapter={AdapterMoment}>
+    <MuiThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <RecoilRoot>
+          <FullViewPhotoWrapper>
+            <Router>
+              <Layout>
+                <Routes />
+              </Layout>
+            </Router>
+          </FullViewPhotoWrapper>
+        </RecoilRoot>
+        <CssBaseline />
+      </ThemeProvider>
+    </MuiThemeProvider>
+  </LocalizationProvider>
 );
 
 export default App;

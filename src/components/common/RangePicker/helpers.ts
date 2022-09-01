@@ -12,14 +12,14 @@ const getRangeDate = (date: Date | string | Moment) =>
 
 export const getValue = (value: string | null | Date | Moment) => {
   if (moment.isMoment(value) || value instanceof Date) {
-    return [moment(value)];
+    return [moment(value, RANGE_DATE_FORMAT)];
   }
 
   if (!value?.length) return [];
 
   const dates = value.split('-');
 
-  const handleMap = (date: string) => moment(date);
+  const handleMap = (date: string) => moment(date, RANGE_DATE_FORMAT);
 
   return dates.map(handleMap);
 };

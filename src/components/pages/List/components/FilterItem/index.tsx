@@ -1,12 +1,11 @@
 import React from 'react';
 import { Field, FieldProps } from 'formik';
-import Input from '~/components/common/Input';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Box from '@mui/material/Box';
-import Select from '~/components/common/Select';
-import { FILTERS } from '~/data/constants';
-import { toCapitalize } from '~/utils/helpers';
+import Select from '~/components/common/Select/';
+import useFilterComponent from '~/components/pages/List/components/FilterItem/hooks/useFilterComponent';
+import useSelectOptions from '~/components/pages/List/components/FilterItem/hooks/useSelectOptions';
 import useStyles from './styles';
 
 type FilterItemPropsType = {
@@ -19,10 +18,9 @@ const FilterItem: React.FC<FilterItemPropsType> = props => {
 
   const styles = useStyles();
 
-  const selectOptions = Object.values(FILTERS).map(({ NAME: name }) => ({
-    value: name,
-    label: toCapitalize(name),
-  }));
+  const selectOptions = useSelectOptions(index);
+
+  const getCurrentFilterComponent = useFilterComponent(index);
 
   return (
     <Box css={styles.filterItemWrapper}>
@@ -38,14 +36,14 @@ const FilterItem: React.FC<FilterItemPropsType> = props => {
         )}
       </Field>
       <Field name={`changeableValues.filters.${index}.value`}>
-        {({ field }: FieldProps) => (
-          <Input
-            {...field}
-            size="small"
-            label="filter value"
-            css={styles.valueField}
-          />
-        )}
+        {({ field }: FieldProps) =>
+          getCurrentFilterComponent({
+            ...field,
+            size: 'small',
+            label: 'filter value',
+            css: styles.valueField,
+          })
+        }
       </Field>
       <IconButton color="error" size="small" onClick={onRemoveFilter}>
         <DeleteIcon />

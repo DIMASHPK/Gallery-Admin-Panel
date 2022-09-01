@@ -10,6 +10,7 @@ import Box from '@mui/material/Box';
 import { useFormikContext } from 'formik';
 import { ToolsFormType } from '~/types';
 import SortingForm from '~/components/pages/List/components/SortingForm';
+import useOpenCollapses from '~/components/pages/List/components/ToolsPopover/hooks/useOpenCollapses';
 import useStyles from './styles';
 
 type ToolsPopoverPropsType = {
@@ -23,9 +24,7 @@ const ToolsPopover: React.FC<ToolsPopoverPropsType> = props => {
 
   const styles = useStyles();
 
-  const { values } = useFormikContext<ToolsFormType>();
-
-  const { filters } = values.currentValues;
+  const { isFilterListOpen, isSortingListOpen } = useOpenCollapses();
 
   return (
     <Popover
@@ -37,10 +36,10 @@ const ToolsPopover: React.FC<ToolsPopoverPropsType> = props => {
         Tools List
       </Typography>
       <List>
-        <NestedListItem label="Filters" isOpen={Boolean(filters.length)}>
+        <NestedListItem label="Filters" isOpen={isFilterListOpen}>
           <FiltersForm />
         </NestedListItem>
-        <NestedListItem label="Sorting">
+        <NestedListItem label="Sorting" isOpen={isSortingListOpen}>
           <SortingForm />
         </NestedListItem>
       </List>

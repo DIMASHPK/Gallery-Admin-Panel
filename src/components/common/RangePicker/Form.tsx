@@ -2,7 +2,10 @@ import React from 'react';
 import { useFormikContext } from 'formik';
 import RangePicker, { RangePickerPropsType } from './index';
 
-export type RangePickerFormPropsType = RangePickerPropsType & {
+export type RangePickerFormPropsType = Omit<
+  RangePickerPropsType,
+  'onChange'
+> & {
   name: string;
 };
 

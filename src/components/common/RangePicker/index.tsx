@@ -15,10 +15,11 @@ import {
 
 export type RangePickerPropsType = Omit<
   DesktopDatePickerProps<Moment, Moment>,
-  'onChange' | 'renderInput'
+  'onChange' | 'renderInput' | 'value'
 > & {
   onChange: (date: string | null) => void;
-  size: TextFieldProps['size'];
+  size?: TextFieldProps['size'];
+  value: Moment | null | string | Date;
 };
 
 const RangePicker: React.FC<RangePickerPropsType> = props => {

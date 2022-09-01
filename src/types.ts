@@ -59,6 +59,7 @@ export type ToolsFiltersFormType = {
 export type ToolsFormCommonType = {
   sorting: ToolsSortingFormType;
   filters: ToolsFiltersFormType[];
+  filtersCondition: string;
 };
 
 export type ToolsFormType = {

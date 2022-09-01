@@ -14,6 +14,7 @@ const ToolsForm: React.FC<ToolsFormPropsType> = props => {
         value: '',
       },
       filters: [],
+      filtersCondition: '',
     },
     currentValues: {
       sorting: {
@@ -21,6 +22,7 @@ const ToolsForm: React.FC<ToolsFormPropsType> = props => {
         value: '',
       },
       filters: [],
+      filtersCondition: '',
     },
   };
 

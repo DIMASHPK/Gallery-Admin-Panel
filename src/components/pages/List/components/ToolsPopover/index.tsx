@@ -7,6 +7,8 @@ import NestedListItem from '~/components/common/NestedListItem';
 import FiltersForm from '~/components/pages/List/components/FiltersForm';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import { useFormikContext } from 'formik';
+import { ToolsFormType } from '~/types';
 import useStyles from './styles';
 
 type ToolsPopoverPropsType = {
@@ -20,6 +22,10 @@ const ToolsPopover: React.FC<ToolsPopoverPropsType> = props => {
 
   const styles = useStyles();
 
+  const { values } = useFormikContext<ToolsFormType>();
+
+  const { filters } = values.currentValues;
+
   return (
     <Popover
       anchorEl={anchorEl}
@@ -30,7 +36,7 @@ const ToolsPopover: React.FC<ToolsPopoverPropsType> = props => {
         Tools List
       </Typography>
       <List>
-        <NestedListItem label="Filters">
+        <NestedListItem label="Filters" isOpen={Boolean(filters.length)}>
           <FiltersForm />
         </NestedListItem>
         <NestedListItem label="Sorting">

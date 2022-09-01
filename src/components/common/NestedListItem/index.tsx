@@ -10,12 +10,13 @@ import useStyles from './styles';
 
 type NestedListItemPropsType = ChildrenType & {
   label: string;
+  isOpen?: boolean;
 };
 
 const NestedListItem: React.FC<NestedListItemPropsType> = props => {
-  const { label, children } = props;
+  const { label, children, isOpen } = props;
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(isOpen as boolean);
 
   const styles = useStyles();
 
@@ -36,6 +37,10 @@ const NestedListItem: React.FC<NestedListItemPropsType> = props => {
       </Collapse>
     </Box>
   );
+};
+
+NestedListItem.defaultProps = {
+  isOpen: false,
 };
 
 export default NestedListItem;

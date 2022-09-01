@@ -7,6 +7,8 @@ import Box from '@mui/material/Box';
 import { ListItem } from '@mui/material';
 import FilterItem from '~/components/pages/List/components/FilterItem';
 import useFilterHandlers from '~/components/pages/List/components/FiltersForm/hooks/useFilterHandlers';
+import { FILTERS } from '~/data/constants';
+import ConditionalSelect from '~/components/pages/List/components/ConditionalSelect';
 import useStyles from './styles';
 
 type FieldArrayRenderPropsType = ArrayHelpers;
@@ -28,15 +30,19 @@ const FieldArrayRender: React.FC<FieldArrayRenderPropsType> = props => {
     />
   );
 
+  const addFilterDisabled = filters.length >= Object.keys(FILTERS).length;
+
   return (
     <ListItem>
       <Box css={styles.filtersListItemContainer}>
         <Box>{filters.map(handleMap)}</Box>
+        <ConditionalSelect />
         <Button
           size="small"
           startIcon={<AddIcon />}
           variant="contained"
           onClick={handleAddFilter}
+          disabled={addFilterDisabled}
         >
           Add Filter
         </Button>

@@ -1,11 +1,10 @@
 import React from 'react';
 import { Field, FieldProps } from 'formik';
-import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
 import Box from '@mui/material/Box';
 import Select from '~/components/common/Select/';
 import useFilterComponent from '~/components/pages/List/components/FilterItem/hooks/useFilterComponent';
 import useSelectOptions from '~/components/pages/List/components/FilterItem/hooks/useSelectOptions';
+import RemoveIconButton from '~/components/common/RemoveIconButton';
 import useStyles from './styles';
 
 type FilterItemPropsType = {
@@ -45,9 +44,7 @@ const FilterItem: React.FC<FilterItemPropsType> = props => {
           })
         }
       </Field>
-      <IconButton color="error" size="small" onClick={onRemoveFilter}>
-        <DeleteIcon />
-      </IconButton>
+      <RemoveIconButton onClick={onRemoveFilter} />
     </Box>
   );
 };

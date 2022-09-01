@@ -9,6 +9,7 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import { useFormikContext } from 'formik';
 import { ToolsFormType } from '~/types';
+import SortingForm from '~/components/pages/List/components/SortingForm';
 import useStyles from './styles';
 
 type ToolsPopoverPropsType = {
@@ -40,7 +41,7 @@ const ToolsPopover: React.FC<ToolsPopoverPropsType> = props => {
           <FiltersForm />
         </NestedListItem>
         <NestedListItem label="Sorting">
-          <FiltersForm />
+          <SortingForm />
         </NestedListItem>
       </List>
       <Box css={styles.buttonsWrapper}>

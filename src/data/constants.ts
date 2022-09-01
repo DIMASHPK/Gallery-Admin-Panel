@@ -51,3 +51,8 @@ export const FILTERS = {
     NAME: FILTER_NAMES.DESCRIPTION,
   },
 };
+
+export const SORT_OPTIONS = {
+  DESCENDING: 'descending',
+  ASCENDING: 'ascending',
+};

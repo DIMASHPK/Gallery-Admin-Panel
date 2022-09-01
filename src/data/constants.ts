@@ -19,25 +19,35 @@ export const PRELOADER_STYLES_KEY = {
   FIXED: 'FIXED',
 } as const;
 
+export const FILTERS_CONDITION_OPTIONS = {
+  AND: {
+    label: 'And',
+    value: '&&',
+  },
+  OR: {
+    label: 'Or',
+    value: '||',
+  },
+};
+
+export const FILTER_NAMES = {
+  NAME: 'name',
+  SIZE: 'size',
+  DATE: 'date',
+  DESCRIPTION: 'description',
+} as const;
+
 export const FILTERS = {
-  NAME: {
-    NAME: 'name',
-    TYPE: 'text',
+  [FILTER_NAMES.NAME]: {
+    NAME: FILTER_NAMES.NAME,
   },
-  SIZE: {
-    NAME: 'size',
-    TYPE: 'text',
+  [FILTER_NAMES.SIZE]: {
+    NAME: FILTER_NAMES.SIZE,
   },
-  DATE: {
-    NAME: 'date',
-    TYPE: 'range',
+  [FILTER_NAMES.DATE]: {
+    NAME: FILTER_NAMES.DATE,
   },
-  DESCRIPTION: {
-    NAME: 'description',
-    type: 'text',
-  },
-  CONDITION: {
-    NAME: 'condition',
-    type: 'select',
+  [FILTER_NAMES.DESCRIPTION]: {
+    NAME: FILTER_NAMES.DESCRIPTION,
   },
 };

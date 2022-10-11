@@ -7,9 +7,11 @@ import { replacePathVariables } from '~/utils/pathReplacer';
 export default () => {
   const [page, setPage] = useState(1);
   const [isEnd, setIsEnd] = useState(false);
+  const [filters, setFilters] = useState('');
 
   const listEndpoint = replacePathVariables(API_PATH_NAMES.LIST, {
     $1$: page,
+    $filters$: filters,
   }) as typeof API_PATH_NAMES.LIST;
 
   const { data, loading } = useQuery<ListResponseType>({
@@ -35,5 +37,5 @@ export default () => {
     }
   }, [data, setListData]);
 
-  return { loading, listData, setRef, isEnd };
+  return { loading, listData, setRef, isEnd, setFilters };
 };

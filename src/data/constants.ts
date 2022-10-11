@@ -1,10 +1,10 @@
 type ApiPathNamesType = {
-  LIST: `/list?page=${number | string}`;
+  LIST: `/list?page=${number | string}&filters=${string}`;
   LIST_DETAILS: `/list/$${number | string}$`;
 };
 
 export const API_PATH_NAMES: ApiPathNamesType = {
-  LIST: '/list?page=$1$',
+  LIST: '/list?page=$1$&filters=$filters$',
   LIST_DETAILS: '/list/$id$',
 };
 

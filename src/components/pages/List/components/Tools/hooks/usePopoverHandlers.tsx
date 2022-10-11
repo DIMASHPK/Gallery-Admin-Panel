@@ -7,7 +7,8 @@ import { ToolsFormType } from '~/components/pages/List/types';
 export default () => {
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
-  const { setValues, values, validateForm } = useFormikContext<ToolsFormType>();
+  const { setValues, values, validateForm, handleSubmit } =
+    useFormikContext<ToolsFormType>();
 
   const handleOpenPopover = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -42,6 +43,8 @@ export default () => {
     });
 
     handleClosePopover();
+
+    handleSubmit();
   };
 
   return {

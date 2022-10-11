@@ -9,7 +9,7 @@ import Card from './components/Card';
 import useStyles from './styles';
 
 const List: React.FC = () => {
-  const { loading, listData, setRef, isEnd } = useLoadData();
+  const { loading, listData, setRef, isEnd, setFilters } = useLoadData();
 
   const styles = useStyles();
 
@@ -29,7 +29,7 @@ const List: React.FC = () => {
       <Typography component="h1" variant="h2" css={styles.listTitle}>
         List Gallery
       </Typography>
-      <ToolsForm>
+      <ToolsForm setFilters={setFilters}>
         <Tools />
       </ToolsForm>
       <div css={styles.listItemsContainer}>

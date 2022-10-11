@@ -5,10 +5,12 @@ import { TOOLS_FORM_VALUES_KEYS } from '~/components/pages/List/constants';
 import { ToolsFormSchema } from '~/components/pages/List/components/Tools/Validation';
 import { ToolsFormType } from '~/components/pages/List/types';
 
-type ToolsFormPropsType = ChildrenType;
+type ToolsFormPropsType = ChildrenType & {
+  setFilters: React.Dispatch<React.SetStateAction<string>>;
+};
 
 const ToolsForm: React.FC<ToolsFormPropsType> = props => {
-  const { children } = props;
+  const { children, setFilters } = props;
 
   const initialValues: ToolsFormType = {
     changeableValues: {
@@ -30,7 +32,9 @@ const ToolsForm: React.FC<ToolsFormPropsType> = props => {
     chipsList: [],
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = ({ currentValues }: ToolsFormType) => {
+    setFilters(JSON.stringify(currentValues));
+  };
 
   return (
     <Formik

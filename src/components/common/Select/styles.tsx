@@ -7,12 +7,17 @@ export default () => {
       custom: {
         white: { primary },
       },
+      error: { main: error },
     },
   } = useTheme();
 
   return {
     option: css({
       color: primary,
+    }),
+    helperText: css({
+      color: error,
+      marginLeft: 14,
     }),
   };
 };

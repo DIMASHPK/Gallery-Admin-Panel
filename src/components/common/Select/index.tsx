@@ -4,12 +4,14 @@ import Select, { SelectProps } from '@mui/material/Select/Select';
 import React from 'react';
 import { SelectOptionType } from '~/types';
 import MenuItem from '@mui/material/MenuItem';
+import { FormHelperText } from '@mui/material';
 import useStyles from './styles';
 
 type CommonSelectPropsType = SelectProps & {
   options: SelectOptionType[];
   label?: string;
   nullable?: boolean;
+  errorMessage?: string;
 };
 
 const CommonSelect: React.FC<CommonSelectPropsType> = props => {
@@ -21,6 +23,7 @@ const CommonSelect: React.FC<CommonSelectPropsType> = props => {
     labelId,
     size,
     className,
+    errorMessage,
     ...restProps
   } = props;
 
@@ -49,6 +52,9 @@ const CommonSelect: React.FC<CommonSelectPropsType> = props => {
         )}
         {options.map(handleMap)}
       </Select>
+      {Boolean(errorMessage) && (
+        <FormHelperText css={styles.helperText}>{errorMessage}</FormHelperText>
+      )}
     </FormControl>
   );
 };

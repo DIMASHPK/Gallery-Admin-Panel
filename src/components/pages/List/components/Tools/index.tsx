@@ -4,6 +4,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import Box from '@mui/material/Box';
 import ToolsPopover from '~/components/pages/List/components/ToolsPopover';
 import usePopoverHandlers from '~/components/pages/List/components/Tools/hooks/usePopoverHandlers';
+import ToolsChipList from '~/components/pages/List/components/ToolsChipList';
 import useStyles from './styles';
 
 const Tools: React.FC = () => {
@@ -18,7 +19,7 @@ const Tools: React.FC = () => {
 
   return (
     <Box css={styles.toolsContainer}>
-      <Box>
+      <Box css={styles.toolsWrapper}>
         <Button
           variant="contained"
           startIcon={<SettingsIcon />}
@@ -26,6 +27,7 @@ const Tools: React.FC = () => {
         >
           Tools
         </Button>
+        <ToolsChipList />
         <ToolsPopover
           anchorEl={anchorEl}
           onCancelPopover={handleCancelPopover}

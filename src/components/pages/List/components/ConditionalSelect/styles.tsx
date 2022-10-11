@@ -11,7 +11,7 @@ export default () => {
     }),
     filtersCondition: css({
       width: 100,
-      margin: spacing(2, 0),
+      margin: spacing(3, 0),
     }),
   };
 };

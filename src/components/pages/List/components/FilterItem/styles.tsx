@@ -6,7 +6,7 @@ export default () => {
 
   return {
     filterItemWrapper: css({
-      marginBottom: spacing(2),
+      marginBottom: spacing(3),
       display: 'flex',
     }),
     nameField: css({

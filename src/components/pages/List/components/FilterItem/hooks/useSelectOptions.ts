@@ -1,8 +1,9 @@
 import { useFormikContext } from 'formik';
-import { SelectOptionType, ToolsFormType } from '~/types';
+import { SelectOptionType } from '~/types';
 import { useMemo } from 'react';
-import { FILTERS } from '~/data/constants';
 import { toCapitalize } from '~/utils/helpers';
+import { FILTERS } from '~/components/pages/List/constants';
+import { ToolsFormType } from '~/components/pages/List/types';
 
 export default (index: number) => {
   const { values } = useFormikContext<ToolsFormType>();
@@ -31,5 +32,5 @@ export default (index: number) => {
     };
 
     return filtersArray.reduce(handleReduce, initAcc);
-  }, [currentFilters]);
+  }, [currentFilters, index]);
 };

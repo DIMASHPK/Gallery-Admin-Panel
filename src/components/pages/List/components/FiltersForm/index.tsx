@@ -1,8 +1,8 @@
 import React from 'react';
 import { FieldArray, useFormikContext } from 'formik';
-import { ToolsFormType } from '~/types';
 import FieldArrayRender from '~/components/pages/List/components/FiltersForm/FieldArrayRender';
 import { ListItem } from '@mui/material';
+import { ToolsFormType } from '~/components/pages/List/types';
 
 const FiltersForm: React.FC = () => {
   const formik = useFormikContext<ToolsFormType>();

@@ -1,7 +1,7 @@
-import { FILTERS, SORT_OPTIONS } from '~/data/constants';
 import { SelectOptionType } from '~/types';
 import { toCapitalize } from '~/utils/helpers';
 import { useMemo } from 'react';
+import { FILTERS, SORT_OPTIONS } from '~/components/pages/List/constants';
 
 export default () =>
   useMemo(() => {

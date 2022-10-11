@@ -16,8 +16,14 @@ const RenderField: React.FC<RenderFieldPropsType> = props => {
 
   return (
     <Field name={name}>
-      {({ field }: FieldProps) => (
-        <Select {...field} {...restProps} size="small" />
+      {({ field, meta }: FieldProps) => (
+        <Select
+          {...field}
+          errorMessage={meta.error}
+          error={Boolean(meta.error)}
+          {...restProps}
+          size="small"
+        />
       )}
     </Field>
   );

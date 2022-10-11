@@ -24,9 +24,11 @@ const FilterItem: React.FC<FilterItemPropsType> = props => {
   return (
     <Box css={styles.filterItemWrapper}>
       <Field name={`changeableValues.filters.${index}.name`}>
-        {({ field }: FieldProps) => (
+        {({ field, meta }: FieldProps) => (
           <Select
             {...field}
+            errorMessage={meta.error}
+            error={Boolean(meta.error)}
             label="filter name"
             size="small"
             css={styles.nameField}
@@ -35,12 +37,14 @@ const FilterItem: React.FC<FilterItemPropsType> = props => {
         )}
       </Field>
       <Field name={`changeableValues.filters.${index}.value`}>
-        {({ field }: FieldProps) =>
+        {({ field, meta }: FieldProps) =>
           getCurrentFilterComponent({
             ...field,
             size: 'small',
             label: 'filter value',
             css: styles.valueField,
+            error: Boolean(meta.error),
+            helperText: meta.error,
           })
         }
       </Field>

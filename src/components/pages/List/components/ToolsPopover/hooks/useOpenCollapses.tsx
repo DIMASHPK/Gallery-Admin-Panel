@@ -1,5 +1,5 @@
 import { useFormikContext } from 'formik';
-import { ToolsFormType } from '~/types';
+import { ToolsFormType } from '~/components/pages/List/types';
 
 export default () => {
   const { values } = useFormikContext<ToolsFormType>();

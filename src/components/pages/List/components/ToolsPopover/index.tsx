@@ -7,8 +7,6 @@ import NestedListItem from '~/components/common/NestedListItem';
 import FiltersForm from '~/components/pages/List/components/FiltersForm';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import { useFormikContext } from 'formik';
-import { ToolsFormType } from '~/types';
 import SortingForm from '~/components/pages/List/components/SortingForm';
 import useOpenCollapses from '~/components/pages/List/components/ToolsPopover/hooks/useOpenCollapses';
 import useStyles from './styles';

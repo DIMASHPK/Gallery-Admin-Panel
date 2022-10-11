@@ -2,13 +2,13 @@ import React from 'react';
 import { ArrayHelpers, useFormikContext } from 'formik';
 import AddIcon from '@mui/icons-material/Add';
 import Button from '@mui/material/Button';
-import { ToolsFormType } from '~/types';
 import Box from '@mui/material/Box';
 import { ListItem } from '@mui/material';
 import FilterItem from '~/components/pages/List/components/FilterItem';
 import useFilterHandlers from '~/components/pages/List/components/FiltersForm/hooks/useFilterHandlers';
-import { FILTERS } from '~/data/constants';
 import ConditionalSelect from '~/components/pages/List/components/ConditionalSelect';
+import { FILTERS } from '~/components/pages/List/constants';
+import { ToolsFormType } from '~/components/pages/List/types';
 import useStyles from './styles';
 
 type FieldArrayRenderPropsType = ArrayHelpers;

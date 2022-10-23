@@ -20,6 +20,7 @@ export const FILTER_NAMES = {
   SIZE: 'size',
   DATE: 'date',
   DESCRIPTION: 'description',
+  ID: 'id',
 } as const;
 
 export const FILTERS = {
@@ -34,6 +35,9 @@ export const FILTERS = {
   },
   [FILTER_NAMES.DESCRIPTION]: {
     NAME: FILTER_NAMES.DESCRIPTION,
+  },
+  [FILTER_NAMES.ID]: {
+    NAME: FILTER_NAMES.ID,
   },
 };
 

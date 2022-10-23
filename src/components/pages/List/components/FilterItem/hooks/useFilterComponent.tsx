@@ -33,6 +33,7 @@ export default (index: number) => {
       [FILTER_NAMES.SIZE]: (data: DataType) => (
         <Input {...data} type="number" />
       ),
+      [FILTER_NAMES.ID]: (data: DataType) => <Input {...data} type="number" />,
     };
 
     return componentsMapper[name as GetOptionalType<typeof FILTER_NAMES>];
